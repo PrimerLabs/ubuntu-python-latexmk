@@ -1,7 +1,8 @@
-FROM blang/latex:ctanbasic
+FROM blang/latex:ubuntu
 
 MAINTAINER Siddharth Kanungo <admin@primerlabs.io>
 
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
         apt-get install -y software-properties-common vim && \
         add-apt-repository ppa:jonathonf/python-3.6
@@ -27,4 +28,14 @@ RUN apt-get update && \
    sudo \
    vim \
    wget
-RUN tlmgr install scheme-full
+
+RUN apt-get update -q && apt-get install -qy \
+    texlive-full \
+    python-pygments gnuplot \
+    make git \
+    && rm -rf /var/lib/apt/lists/*
+
+
+WORKDIR /data
+VOLUME ["/data"]
+
