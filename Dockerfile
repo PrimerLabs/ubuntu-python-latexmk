@@ -4,7 +4,8 @@ MAINTAINER Siddharth Kanungo <admin@primerlabs.io>
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
-        apt-get install -y software-properties-common vim
+        apt-get install -y software-properties-common vim && \
+        add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get update -y
 
 RUN apt-get install -y build-essential python3.6 python3.6-dev python3-pip python3.6-venv && \
