@@ -1,4 +1,4 @@
-FROM blang/latex:ubuntu
+FROM blang/latex:ctanfull
 
 MAINTAINER Siddharth Kanungo <admin@primerlabs.io>
 
@@ -34,7 +34,8 @@ RUN apt-get update && \
    perl \
    sudo \
    vim \
-   wget
+   wget \
+   xzdec
 
 RUN apt-get update -q && apt-get install -qy \
     texlive-full \
